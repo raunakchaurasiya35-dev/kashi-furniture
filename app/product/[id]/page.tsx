@@ -6,27 +6,21 @@ import Link from "next/link";
 import { Phone, MessageCircle, CheckCircle2, Truck } from "lucide-react"; 
 import { productsData } from "../../data/products";
 
-
 type Props = {
   params: Promise<{ id: string }>;
 };
 
 export default function ProductDetail({ params }: Props) {
-  // Naye Next.js me params ek Promise hota hai, isliye use() se unwrap kiya hai
   const resolvedParams = use(params);
   
-  // Find the product by ID from URL
   const product = productsData.find(p => p.id === resolvedParams.id) || productsData[0]; 
 
   const [activeImage, setActiveImage] = useState(product.image);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [activeTab, setActiveTab] = useState("details");
 
-  // Aapke naye contact details
   const phoneNumber = "+919336754268"; 
   const whatsappNumber = "919336754268";
-  
-  // WhatsApp message format fixed
   const whatsappMessage = `Hello Kashi Steel! I am interested in your product: *${product.name}* (₹${product.price.toLocaleString('en-IN')}). Could you please share more details?`;
 
   return (
