@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+body {
+  /* Default text color for the whole site */
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+/* Custom utility classes if needed later */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
